@@ -9,14 +9,10 @@ A responsive Kanban board built with **React** and **Tailwind CSS** to manage ta
 - ✅ Three distinct columns: `New`, `Ongoing`, `Done`
 - 📝 Create tasks with **title** and **description** (only in `New`)
 - 🟦 Status labels with color-coded tags
-- 📦 Right-click context menu for moving tasks between columns
+- 📦 Drag & drop feature for moving tasks between columns
 - 📆 Set **deadline** for `Ongoing` tasks
 - ⏰ Visual warning with tooltip for **overdue** tasks
-- 🔄 Tasks ordered by:
-  - Newest first in `New`
-  - Move time in `Ongoing` and `Done`
 - 📱 Fully responsive layout
-- 🖱️ Drag-and-drop support (via `@hello-pangea/dnd`)
 
 ---
 
