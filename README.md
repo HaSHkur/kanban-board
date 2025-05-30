@@ -1,55 +1,81 @@
-# React + TypeScript + Vite
+# 🗂️ React Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Kanban board built with **React** and **Tailwind CSS** to manage tasks across three stages: **New**, **Ongoing**, and **Done**. Includes drag-and-drop support, context menus, deadline tracking with alerts, and tooltips for overdue tasks.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ Three distinct columns: `New`, `Ongoing`, `Done`
+- 📝 Create tasks with **title** and **description** (only in `New`)
+- 🟦 Status labels with color-coded tags
+- 📦 Right-click context menu for moving tasks between columns
+- 📆 Set **deadline** for `Ongoing` tasks
+- ⏰ Visual warning with tooltip for **overdue** tasks
+- 🔄 Tasks ordered by:
+  - Newest first in `New`
+  - Move time in `Ongoing` and `Done`
+- 📱 Fully responsive layout
+- 🖱️ Drag-and-drop support (via `@hello-pangea/dnd`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🧑‍💻 Technologies Used
+
+- **React** (with functional components + hooks)
+- **Tailwind CSS** for styling
+- **@hello-pangea/dnd** for drag-and-drop
+- **date-fns** for date formatting & comparison
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/react-kanban-board.git
+   cd react-kanban-board
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+> ⚠️ Requires Node.js v14+ and npm v6+
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Board.tsx
+│   ├── Column.tsx
+│   └── TaskCard.tsx
+├── App.tsx
+├── index.tsx
+├── styles/
+│   └── index.css (Tailwind config)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 Future Enhancements
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- ✅ Backend integration with localStorage or database
+- 🔔 Notification system for overdue tasks
+- 📊 Task analytics/dashboard view
+- 🗂️ Sub-tasks and priority labels
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# kanban-board
+---
+
+## 📄 License
+
+MIT License © Hasibul Hasan Ankur
