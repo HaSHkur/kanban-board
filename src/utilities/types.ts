@@ -1,7 +1,9 @@
 export interface Task {
   id: string;
-  content: string;
-  
+  title: string;
+  description: string;
+  deadline: string; 
+  status: Status;
 }
 
 export interface ColumnType {
@@ -12,3 +14,5 @@ export interface ColumnType {
 export interface Columns {
   [key: string]: ColumnType;
 }
+
+export type Status = "new" | "ongoing" | "done";
