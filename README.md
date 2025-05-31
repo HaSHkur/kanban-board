@@ -1,4 +1,4 @@
-# 🗂️ React Kanban Board
+# 🗂️ Kanban Board
 
 A responsive Kanban board built with **React** and **Tailwind CSS** to manage tasks across three stages: **New**, **Ongoing**, and **Done**. Includes drag-and-drop support, context menus, deadline tracking with alerts, and tooltips for overdue tasks.
 
@@ -9,8 +9,9 @@ A responsive Kanban board built with **React** and **Tailwind CSS** to manage ta
 - ✅ Three distinct columns: `New`, `Ongoing`, `Done`
 - 📝 Create tasks with **title** and **description** (only in `New`)
 - 🟦 Status labels with color-coded tags
+- 📄 Context menu to swap tasks between columns
 - 📦 Drag & drop feature for moving tasks between columns
-- 📆 Set **deadline** for `Ongoing` tasks
+- 📆 Set **deadline** for tasks
 - ⏰ Visual warning with tooltip for **overdue** tasks
 - 📱 Fully responsive layout
 
@@ -30,8 +31,8 @@ A responsive Kanban board built with **React** and **Tailwind CSS** to manage ta
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/react-kanban-board.git
-   cd react-kanban-board
+   git clone https://github.com/HaSHkur/kanban-board.git
+   cd kanban-board
    ```
 
 2. **Install dependencies:**
