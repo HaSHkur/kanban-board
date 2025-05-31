@@ -6,9 +6,10 @@ import type { ColumnType } from "../utilities/types";
 interface ColumnProps {
   columnId: string;
   column: ColumnType;
+  onMoveTask: (taskId: string, from: string, to: string) => void;
 }
 
-const Column: React.FC<ColumnProps> = ({ columnId, column }) => {
+const Column: React.FC<ColumnProps> = ({ columnId, column, onMoveTask }) => {
   return (
     <div className="bg-gray-200 rounded-2xl p-3 w-full h-[80vh] flex flex-col">
       <h2 className="font-bold text-lg mb-3 pl-3">{column.name}</h2>
@@ -22,7 +23,13 @@ const Column: React.FC<ColumnProps> = ({ columnId, column }) => {
             }`}
           >
             {column.items.map((item, index) => (
-              <TaskCard key={item.id} item={item} index={index} />
+              <TaskCard
+                key={item.id}
+                item={item}
+                index={index}
+                columnId={columnId}
+                onMoveTask={onMoveTask}
+              />
             ))}
             {provided.placeholder}
           </div>

@@ -27,10 +27,42 @@ const KanbanBoard: React.FC = () => {
       ...prev,
       todo: {
         ...prev.todo,
-        items: [...prev.todo.items, newTask],
+        items: [newTask, ...prev.todo.items],
       },
     }));
   };
+
+  const handleMoveTask = (taskId: string, fromColumn: string, toColumn: string) => {
+  setColumns((prevColumns) => {
+    const sourceItems = [...prevColumns[fromColumn].items];
+    const taskIndex = sourceItems.findIndex((item) => item.id === taskId);
+    if (taskIndex === -1) return prevColumns;
+
+    const [task] = sourceItems.splice(taskIndex, 1);
+
+    task.status =
+      toColumn === "todo"
+        ? "new"
+        : toColumn === "inprogress"
+        ? "ongoing"
+        : "done";
+
+    const destItems = [task, ...prevColumns[toColumn].items];
+
+    return {
+      ...prevColumns,
+      [fromColumn]: {
+        ...prevColumns[fromColumn],
+        items: sourceItems,
+      },
+      [toColumn]: {
+        ...prevColumns[toColumn],
+        items: destItems,
+      },
+    };
+  });
+};
+
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -44,7 +76,6 @@ const KanbanBoard: React.FC = () => {
 
     const [movedItem] = sourceItems.splice(source.index, 1);
 
-    // ✅ Update the status of the moved item based on destination
     let updatedStatus: Task["status"] = movedItem.status;
 
     if (destination.droppableId === "todo") {
@@ -104,7 +135,8 @@ const KanbanBoard: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {Object.entries(columns).map(([id, column]) => (
             <div key={id}>
-              <Column columnId={id} column={column} />
+              <Column key={id} columnId={id} column={column} onMoveTask={handleMoveTask} />
+
             </div>
           ))}
         </div>
